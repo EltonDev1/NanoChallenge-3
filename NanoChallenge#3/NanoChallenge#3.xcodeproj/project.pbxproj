@@ -19,6 +19,7 @@
 		169DECBB28108DDD003C0593 /* Subjects+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169DECB728108DDC003C0593 /* Subjects+CoreDataProperties.swift */; };
 		169DECBC28108DDD003C0593 /* IdSubjects+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169DECB828108DDC003C0593 /* IdSubjects+CoreDataClass.swift */; };
 		169DECBD28108DDD003C0593 /* IdSubjects+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169DECB928108DDC003C0593 /* IdSubjects+CoreDataProperties.swift */; };
+		169DECC12812E227003C0593 /* SubjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169DECC02812E227003C0593 /* SubjectTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		169DECB728108DDC003C0593 /* Subjects+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Subjects+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		169DECB828108DDC003C0593 /* IdSubjects+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IdSubjects+CoreDataClass.swift"; sourceTree = "<group>"; };
 		169DECB928108DDC003C0593 /* IdSubjects+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IdSubjects+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		169DECC02812E227003C0593 /* SubjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			children = (
 				169DECB12810848A003C0593 /* CadMatViewController.swift */,
 				1605454F280750C500EB9ECE /* ViewController.swift */,
+				169DECC02812E227003C0593 /* SubjectTableViewCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				169DECC12812E227003C0593 /* SubjectTableViewCell.swift in Sources */,
 				169DECBA28108DDC003C0593 /* Subjects+CoreDataClass.swift in Sources */,
 				169DECBD28108DDD003C0593 /* IdSubjects+CoreDataProperties.swift in Sources */,
 				169DECBB28108DDD003C0593 /* Subjects+CoreDataProperties.swift in Sources */,

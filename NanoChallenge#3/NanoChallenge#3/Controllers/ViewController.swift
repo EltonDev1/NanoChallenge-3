@@ -7,20 +7,35 @@
 
 import UIKit
 
+//Setando a array de todas classes coreData como global para ajudar no fluxo de desenvolvimento
+var idSubject : [IdSubjects] = IdSubjects().getAllIdSubjects()
+var subjects : [Subjects] = Subjects().getAllSubjects()
+
 class ViewController: UIViewController {
 
+
+    @IBOutlet weak var tbViewSubjects: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        print("ola")
+
+        
+        //Setando o delegate e o dataSource da tabela para a própria classe.
+        //É necessário adicionar o UITableViewDelegate e UITableViewData source na própria classe para satisfazer a variável.
+        //Nesse caso seram criadas extensões da própria classe com as UIViews necessárias
+        tbViewSubjects.delegate = self
+        tbViewSubjects.dataSource = self
     }
 
 
+    //Função que redireciona para a página de adicionar uma nova matéria
     @IBAction func adicionarNovaMateria(_ sender: Any) {
+        
+        print(idSubject[0].id)
         let entry = storyboard?.instantiateViewController(withIdentifier: "CadMatViewController") as! CadMatViewController
         
         //Condição para checar se existe algum objeto criado dentro da entidade IdSubject
-        if IdSubjects().getAllIdSubjects().isEmpty {
+        if idSubject.isEmpty {
             
             //Criando um novo id para a adicionar na entidade
             let newId : Int64 = 1
@@ -31,14 +46,12 @@ class ViewController: UIViewController {
             //Setando o valor do id à variavel
             entry.id = newId
         } else {
-            //Criando uma variável que vai receber uma lista de objetos IdSubjects
-            let idSubObject = IdSubjects().getAllIdSubjects()
             
             //Criando uma nova id com o valor do id atual do IdSubjects + 1 (incrementação)
-            let newId = idSubObject[0].id + 1;
+            let newId = idSubject[0].id + 1;
             
             //Deletando o id com o valor passadp
-            IdSubjects().deleteIdSubject(item: idSubObject[0])
+            IdSubjects().deleteIdSubject(item: idSubject[0])
             
             //Inserindo um novo id com o valor incrementado
             IdSubjects().createIdSubject(id: newId)
@@ -48,10 +61,55 @@ class ViewController: UIViewController {
      
         }
         
-        //Navegação sendo feita
+        //Função que atualiza a tela assim que os dados das matérias forem cadastrados
+        entry.update = {
+            subjects = Subjects().getAllSubjects()
+            DispatchQueue.main.async {
+                self.tbViewSubjects.reloadData()
+            }
+        }
+        
+        //Redirecionamento sendo efetuado
         navigationController?.pushViewController(entry, animated: true)
+        
+        
     }
     
     
+}
+
+extension ViewController: UITableViewDelegate {
+    
+}
+
+
+
+//Na extensão UITableViewDataSource é obrigatório duas funções: a função que contem cellForRowAt e numbersOfRowsInSection
+extension ViewController: UITableViewDataSource {
+    
+    //Função que cria um titulo para uma seção específica de células
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+            case 0:
+                return "Matérias atuais"
+            default:
+                return ""
+        }
+            
+        
+        
+    }
+    
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //retornando a quantidade de itens na arrau subjects
+        return subjects.count
+    }
+    
+    //Função que seta os valores dos itens dentro da célula
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tbViewSubjects.dequeueReusableCell(withIdentifier: "SubjectTableViewCell", for: indexPath) as! SubjectTableViewCell
+        cell.lblSubject.text = subjects[indexPath.row].name
+        return cell
+    }
 }
 
