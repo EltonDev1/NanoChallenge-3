@@ -13,7 +13,9 @@ var subjects : [Subjects] = Subjects().getAllSubjects()
 
 class ViewController: UIViewController {
 
-
+    //IBOutlets
+    @IBOutlet weak var iptNewSubject: UITextField!
+    
     @IBOutlet weak var tbViewSubjects: UITableView!
     
     override func viewDidLoad() {
@@ -27,67 +29,120 @@ class ViewController: UIViewController {
         tbViewSubjects.dataSource = self
     }
 
-
-    //Função que redireciona para a página de adicionar uma nova matéria
-    @IBAction func adicionarNovaMateria(_ sender: Any) {
+    @IBAction func adicionarMatéria(_ sender: Any) {
+    
+        guard let txt = iptNewSubject.text else { return }
         
-        let entry = storyboard?.instantiateViewController(withIdentifier: "CadMatViewController") as! CadMatViewController
+        let newTxt = txt.trimmingCharacters(in: .whitespacesAndNewlines)
         
-        //Condição para checar se existe algum objeto criado dentro da entidade IdSubject
-        if idSubject.isEmpty {
-            
-            //Criando um novo id para a adicionar na entidade
-            let newId : Int64 = 1
-            
-            //Adicionando id na entidade IdSubjects
-            IdSubjects().createIdSubject(id: newId)
-            
-            //Setando o valor do id à variavel
-            entry.id = newId
-        } else {
-            
-            //Criando uma nova id com o valor do id atual do IdSubjects + 1 (incrementação)
-            let newId = idSubject[0].id + 1;
-            
-            print(newId)
-            
-            //Setando o valor do id à variavel
-            entry.id = newId
-            
-            //Deletando o id com o valor passadp
-            IdSubjects().deleteAllIdsSubjects()
-            
-            idSubject = IdSubjects().getAllIdSubjects()
-            
+        if(newTxt != "") {
+            //Condição para checar se existe algum objeto criado dentro da entidade IdSubject
             if idSubject.isEmpty {
-                print("Deu certo");
-            }
+
+                //Criando um novo id para a adicionar na entidade
+                let newId : Int64 = 1
+
+                //Adicionando id na entidade IdSubjects
+                IdSubjects().createIdSubject(id: newId)
+                
+                //Chamando a função para criar uma nova matéria
+                Subjects().createSubject(name: txt, id: newId)
+
+            } else {
+                //Criando uma nova id com o valor do id atual do IdSubjects + 1 (incrementação)
+                let newId = idSubject[0].id + 1;
+
+               //Deletando o id com o valor passadp
+               IdSubjects().deleteAllIdsSubjects()
+
+               idSubject = IdSubjects().getAllIdSubjects()
+
+               if idSubject.isEmpty {
+                   print("Deu certo");
+               }
+
+               //Inserindo um novo id com o valor incrementado
+               IdSubjects().createIdSubject(id: newId)
+
+               idSubject = IdSubjects().getAllIdSubjects()
+
+               //Chamando a função para criar uma nova matéria
+               Subjects().createSubject(name: newTxt, id: newId)
+
+
+           }
             
-            //Inserindo um novo id com o valor incrementado
-            IdSubjects().createIdSubject(id: newId)
-            
-            idSubject = IdSubjects().getAllIdSubjects()
-            
-            print(idSubject[0].id)
-        
-     
-        }
-        
-        //Função que atualiza a tela assim que os dados das matérias forem cadastrados
-        entry.update = {
+            //Utilizando função para atualizar tabela de matérias
             subjects = Subjects().getAllSubjects()
             DispatchQueue.main.async {
                 self.tbViewSubjects.reloadData()
             }
+            
+            iptNewSubject.text = ""
         }
-        
-        //Redirecionamento sendo efetuado
-        navigationController?.pushViewController(entry, animated: true)
-        
         
     }
     
-    
+//    //Função que redireciona para a página de adicionar uma nova matéria
+//    @IBAction func adicionarNovaMateria(_ sender: Any) {
+//
+//        let entry = storyboard?.instantiateViewController(withIdentifier: "CadMatViewController") as! CadMatViewController
+//
+//        //Condição para checar se existe algum objeto criado dentro da entidade IdSubject
+//        if idSubject.isEmpty {
+//
+//            //Criando um novo id para a adicionar na entidade
+//            let newId : Int64 = 1
+//
+//            //Adicionando id na entidade IdSubjects
+//            IdSubjects().createIdSubject(id: newId)
+//
+//            //Setando o valor do id à variavel
+//            entry.id = newId
+//        } else {
+//
+//            //Criando uma nova id com o valor do id atual do IdSubjects + 1 (incrementação)
+//            let newId = idSubject[0].id + 1;
+//
+//            print(newId)
+//
+//            //Setando o valor do id à variavel
+//            entry.id = newId
+//
+//            //Deletando o id com o valor passadp
+//            IdSubjects().deleteAllIdsSubjects()
+//
+//            idSubject = IdSubjects().getAllIdSubjects()
+//
+//            if idSubject.isEmpty {
+//                print("Deu certo");
+//            }
+//
+//            //Inserindo um novo id com o valor incrementado
+//            IdSubjects().createIdSubject(id: newId)
+//
+//            idSubject = IdSubjects().getAllIdSubjects()
+//
+//            print(idSubject[0].id)
+//
+//
+//        }
+//
+//        //Função que atualiza a tela assim que os dados das matérias forem cadastrados
+//        entry.update = {
+//            subjects = Subjects().getAllSubjects()
+//            DispatchQueue.main.async {
+//                self.tbViewSubjects.reloadData()
+//            }
+//        }
+//
+//        //Redirecionamento sendo efetuado
+//        navigationController?.pushViewController(entry, animated: true)
+//
+//
+//    }
+//
+//
 }
 
 extension ViewController: UITableViewDelegate {
