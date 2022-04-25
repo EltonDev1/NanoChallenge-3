@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="X0s-UZ-Id6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20036.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="X0s-UZ-Id6">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20018.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Matérias-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="NanoChallenge_3" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,14 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Matérias" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyn-2C-1EQ">
-                                <rect key="frame" x="35" y="103" width="115" height="37"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Vjq-Ey-t3F">
-                                <rect key="frame" x="0.0" y="155" width="414" height="707"/>
+                                <rect key="frame" x="0.0" y="170" width="414" height="581"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SubjectTableViewCell" id="QpE-Se-6VZ" customClass="SubjectTableViewCell" customModule="NanoChallenge_3" customModuleProvider="target">
@@ -65,31 +59,46 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hPh-h0-pEh">
+                                <rect key="frame" x="105" y="775" width="204" height="63"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="204" id="VnG-cf-t5A"/>
+                                    <constraint firstAttribute="height" constant="63" id="kgq-p2-1bL"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Relatório Matérias"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Q3-DT-U5q">
+                                <rect key="frame" x="309" y="112" width="85" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Adicionar"/>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nova matéria" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1it-yv-QFs">
+                                <rect key="frame" x="20" y="112" width="267" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="267" id="lcq-xm-ji2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Vjq-Ey-t3F" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="2Qx-tV-wCV"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Vjq-Ey-t3F" secondAttribute="trailing" id="7nl-sh-CkC"/>
-                            <constraint firstItem="hyn-2C-1EQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="9fS-aP-Dyu"/>
-                            <constraint firstItem="Vjq-Ey-t3F" firstAttribute="top" secondItem="hyn-2C-1EQ" secondAttribute="bottom" constant="15" id="RI3-xl-7E7"/>
-                            <constraint firstItem="hyn-2C-1EQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="35" id="uEe-7w-o5a"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Vjq-Ey-t3F" secondAttribute="bottom" id="vVE-xI-Y1G"/>
+                            <constraint firstItem="1it-yv-QFs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="24" id="Cet-4J-f2r"/>
+                            <constraint firstItem="1it-yv-QFs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="EDt-Ey-FQa"/>
+                            <constraint firstItem="Vjq-Ey-t3F" firstAttribute="top" secondItem="1it-yv-QFs" secondAttribute="bottom" constant="24" id="EP6-Df-ADh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hPh-h0-pEh" secondAttribute="trailing" constant="105" id="P4H-Z2-iK5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="hPh-h0-pEh" secondAttribute="bottom" constant="24" id="RDx-Vl-wcM"/>
+                            <constraint firstItem="hPh-h0-pEh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="105" id="V8Y-Vs-sOQ"/>
+                            <constraint firstItem="5Q3-DT-U5q" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="24" id="og1-6g-HEb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5Q3-DT-U5q" secondAttribute="trailing" constant="20" id="qnf-E1-Q9W"/>
+                            <constraint firstItem="hPh-h0-pEh" firstAttribute="top" secondItem="Vjq-Ey-t3F" secondAttribute="bottom" constant="24" id="sjS-Rp-ZUU"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="xNw-HE-5oN">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="rhY-io-dTD">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="M3E-hL-daq">
-                                <rect key="frame" x="269.5" y="5" width="124.5" height="34.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Nova Matéria"/>
-                                <connections>
-                                    <action selector="adicionarNovaMateria:" destination="BYZ-38-t0r" eventType="touchUpInside" id="11T-YI-lFk"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Matérias" id="xNw-HE-5oN"/>
                     <connections>
                         <outlet property="tbViewSubjects" destination="Vjq-Ey-t3F" id="wD4-mZ-cMJ"/>
                     </connections>
@@ -101,7 +110,6 @@
         <!--Navigation Controller-->
         <scene sceneID="WLj-bz-ThW">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="o4d-Pg-kTZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="X0s-UZ-Id6" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fDt-9X-eF8">
@@ -113,6 +121,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="CuF-Fj-6cg"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o4d-Pg-kTZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
         </scene>
