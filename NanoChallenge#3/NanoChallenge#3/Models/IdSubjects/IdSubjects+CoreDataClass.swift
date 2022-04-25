@@ -41,6 +41,19 @@ public class IdSubjects: NSManagedObject {
         save()
     }
     
+    func deleteAllIdsSubjects() {
+        //Busca todos dados da entidade
+        let aux = fetchAll()
+        
+        //Apaga cada item armazenado na entidade
+        for item in aux {
+            context.delete(item)
+        }
+        
+        //atualiza os dados
+        save()
+    }
+    
     func fetchAll()->[IdSubjects] {
         //Cria uma array de itens do tipo IdSubject para armazenar as informações da própria entidade
         var items : [IdSubjects] = []
