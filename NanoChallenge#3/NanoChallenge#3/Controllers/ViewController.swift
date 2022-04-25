@@ -31,7 +31,6 @@ class ViewController: UIViewController {
     //Função que redireciona para a página de adicionar uma nova matéria
     @IBAction func adicionarNovaMateria(_ sender: Any) {
         
-        print(idSubject[0].id)
         let entry = storyboard?.instantiateViewController(withIdentifier: "CadMatViewController") as! CadMatViewController
         
         //Condição para checar se existe algum objeto criado dentro da entidade IdSubject
@@ -50,14 +49,27 @@ class ViewController: UIViewController {
             //Criando uma nova id com o valor do id atual do IdSubjects + 1 (incrementação)
             let newId = idSubject[0].id + 1;
             
+            print(newId)
+            
+            //Setando o valor do id à variavel
+            entry.id = newId
+            
             //Deletando o id com o valor passadp
-            IdSubjects().deleteIdSubject(item: idSubject[0])
+            IdSubjects().deleteAllIdsSubjects()
+            
+            idSubject = IdSubjects().getAllIdSubjects()
+            
+            if idSubject.isEmpty {
+                print("Deu certo");
+            }
             
             //Inserindo um novo id com o valor incrementado
             IdSubjects().createIdSubject(id: newId)
             
-            //Setando o valor do id à variavel
-            entry.id = newId
+            idSubject = IdSubjects().getAllIdSubjects()
+            
+            print(idSubject[0].id)
+        
      
         }
         
@@ -79,6 +91,24 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(subjects[indexPath.row].idSubject)
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            tbViewSubjects.beginUpdates()
+            Subjects().deleteSubject(item: subjects[indexPath.row])
+            tbViewSubjects.deleteRows(at: [indexPath], with: .fade)
+            subjects = Subjects().getAllSubjects()
+            tbViewSubjects.endUpdates()
+        }
+    }
     
 }
 
