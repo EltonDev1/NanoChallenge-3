@@ -14,6 +14,12 @@
 		16054556280750C500EB9ECE /* NanoChallenge_3.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 16054554280750C500EB9ECE /* NanoChallenge_3.xcdatamodeld */; };
 		16054558280750C800EB9ECE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16054557280750C800EB9ECE /* Assets.xcassets */; };
 		1605455B280750C800EB9ECE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16054559280750C800EB9ECE /* LaunchScreen.storyboard */; };
+		169DECB22810848A003C0593 /* CadMatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169DECB12810848A003C0593 /* CadMatViewController.swift */; };
+		169DECBA28108DDC003C0593 /* Subjects+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169DECB628108DDC003C0593 /* Subjects+CoreDataClass.swift */; };
+		169DECBB28108DDD003C0593 /* Subjects+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169DECB728108DDC003C0593 /* Subjects+CoreDataProperties.swift */; };
+		169DECBC28108DDD003C0593 /* IdSubjects+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169DECB828108DDC003C0593 /* IdSubjects+CoreDataClass.swift */; };
+		169DECBD28108DDD003C0593 /* IdSubjects+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169DECB928108DDC003C0593 /* IdSubjects+CoreDataProperties.swift */; };
+		169DECC12812E227003C0593 /* SubjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169DECC02812E227003C0593 /* SubjectTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +32,12 @@
 		16054557280750C800EB9ECE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1605455A280750C800EB9ECE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1605455C280750C800EB9ECE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		169DECB12810848A003C0593 /* CadMatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadMatViewController.swift; sourceTree = "<group>"; };
+		169DECB628108DDC003C0593 /* Subjects+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Subjects+CoreDataClass.swift"; sourceTree = "<group>"; };
+		169DECB728108DDC003C0593 /* Subjects+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Subjects+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		169DECB828108DDC003C0593 /* IdSubjects+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IdSubjects+CoreDataClass.swift"; sourceTree = "<group>"; };
+		169DECB928108DDC003C0593 /* IdSubjects+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IdSubjects+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		169DECC02812E227003C0593 /* SubjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +70,62 @@
 		1605454A280750C500EB9ECE /* NanoChallenge#3 */ = {
 			isa = PBXGroup;
 			children = (
+				169DECB5281084C3003C0593 /* Views */,
+				169DECB4281084A2003C0593 /* Models */,
+				169DECB328108498003C0593 /* Controllers */,
 				1605454B280750C500EB9ECE /* AppDelegate.swift */,
 				1605454D280750C500EB9ECE /* SceneDelegate.swift */,
-				1605454F280750C500EB9ECE /* ViewController.swift */,
-				16054551280750C500EB9ECE /* Main.storyboard */,
 				16054557280750C800EB9ECE /* Assets.xcassets */,
-				16054559280750C800EB9ECE /* LaunchScreen.storyboard */,
 				1605455C280750C800EB9ECE /* Info.plist */,
 				16054554280750C500EB9ECE /* NanoChallenge_3.xcdatamodeld */,
 			);
 			path = "NanoChallenge#3";
+			sourceTree = "<group>";
+		};
+		169DECB328108498003C0593 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				169DECB12810848A003C0593 /* CadMatViewController.swift */,
+				1605454F280750C500EB9ECE /* ViewController.swift */,
+				169DECC02812E227003C0593 /* SubjectTableViewCell.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		169DECB4281084A2003C0593 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				169DECBF28108E00003C0593 /* IdSubjects */,
+				169DECBE28108DEB003C0593 /* Subjects */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		169DECB5281084C3003C0593 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				16054559280750C800EB9ECE /* LaunchScreen.storyboard */,
+				16054551280750C500EB9ECE /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		169DECBE28108DEB003C0593 /* Subjects */ = {
+			isa = PBXGroup;
+			children = (
+				169DECB628108DDC003C0593 /* Subjects+CoreDataClass.swift */,
+				169DECB728108DDC003C0593 /* Subjects+CoreDataProperties.swift */,
+			);
+			path = Subjects;
+			sourceTree = "<group>";
+		};
+		169DECBF28108E00003C0593 /* IdSubjects */ = {
+			isa = PBXGroup;
+			children = (
+				169DECB828108DDC003C0593 /* IdSubjects+CoreDataClass.swift */,
+				169DECB928108DDC003C0593 /* IdSubjects+CoreDataProperties.swift */,
+			);
+			path = IdSubjects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,8 +199,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				169DECC12812E227003C0593 /* SubjectTableViewCell.swift in Sources */,
+				169DECBA28108DDC003C0593 /* Subjects+CoreDataClass.swift in Sources */,
+				169DECBD28108DDD003C0593 /* IdSubjects+CoreDataProperties.swift in Sources */,
+				169DECBB28108DDD003C0593 /* Subjects+CoreDataProperties.swift in Sources */,
 				16054550280750C500EB9ECE /* ViewController.swift in Sources */,
+				169DECB22810848A003C0593 /* CadMatViewController.swift in Sources */,
 				16054556280750C500EB9ECE /* NanoChallenge_3.xcdatamodeld in Sources */,
+				169DECBC28108DDD003C0593 /* IdSubjects+CoreDataClass.swift in Sources */,
 				1605454C280750C500EB9ECE /* AppDelegate.swift in Sources */,
 				1605454E280750C500EB9ECE /* SceneDelegate.swift in Sources */,
 			);
