@@ -7,23 +7,39 @@
 
 import UIKit
 
+
+
 class ClassesViewController: UIViewController {
     
     //IBOutlets
-    @IBOutlet weak var iptNewClass: UITextField!
     @IBOutlet weak var tbViewClasses: UITableView!
+    @IBOutlet weak var lblNameSubject: UILabel!
+    
+    //Variável que vai receber o id e nome da materia que for selecionado pelo usuário
+    var idSubject : Int64?
+    var nameSubject : String?
+    
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Criando um variavel para receber o nameSubject opcional e implementar no titulo
+        let nameSub : String = nameSubject!
+
+        //Atribuindo a variável nameSub ao titulo da pagina
+        lblNameSubject.text = nameSub
 
         //Atribuindo delegate e datasource à tabela
         tbViewClasses.delegate = self
         tbViewClasses.dataSource = self
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(adicionarNovaAula))
     }
-
-    //Função para adicionar uma nova aula a entidade Classes e carregar na tabela
-    @IBAction func adicionarNovaAula(_ sender: Any) {
+    
+    @objc func adicionarNovaAula() {
+        print("ola")
     }
     
 }
@@ -33,10 +49,29 @@ extension ClassesViewController: UITableViewDelegate {
 }
 
 extension ClassesViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+    //Função que cria um titulo para uma seção específica de células
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+            case 0:
+                return "Aulas adicionadas"
+            default:
+                return ""
+        }
+            
+        
         
     }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //retornando a quantidade de itens na arrau subjects
+        return classes.count
+    }
+    
+    //Função que seta os valores dos itens dentro da célula
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell = tbViewClasses.dequeueReusableCell(withIdentifier: "ClassesTableViewCell", for: indexPath) as! ClassesTableViewCell
+        cell.lblClasses.text = classes[indexPath.row].nameClass
+        return cell
     }
 }

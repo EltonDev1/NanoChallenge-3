@@ -10,6 +10,7 @@ import UIKit
 //Setando a array de todas classes coreData como global para ajudar no fluxo de desenvolvimento
 var idSubject : [IdSubjects] = IdSubjects().getAllIdSubjects()
 var subjects : [Subjects] = Subjects().getAllSubjects()
+var classes : [Classes] = Classes().getAllClasses()
 
 class ViewController: UIViewController {
 
@@ -27,6 +28,17 @@ class ViewController: UIViewController {
         //Nesse caso seram criadas extensões da própria classe com as UIViews necessárias
         tbViewSubjects.delegate = self
         tbViewSubjects.dataSource = self
+        
+        //Adicionando um botão de edição na navigationItem no canto direito
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Editar", style: .plain, target: self, action: #selector(editCells))
+    }
+    
+    @objc func editCells() {
+        if tbViewSubjects.isEditing {
+            tbViewSubjects.setEditing(false, animated: true)
+        } else {
+            tbViewSubjects.setEditing(true, animated: true)
+        }
     }
 
     @IBAction func adicionarMatéria(_ sender: Any) {
@@ -83,78 +95,31 @@ class ViewController: UIViewController {
         
     }
     
-//    //Função que redireciona para a página de adicionar uma nova matéria
-//    @IBAction func adicionarNovaMateria(_ sender: Any) {
-//
-//        let entry = storyboard?.instantiateViewController(withIdentifier: "CadMatViewController") as! CadMatViewController
-//
-//        //Condição para checar se existe algum objeto criado dentro da entidade IdSubject
-//        if idSubject.isEmpty {
-//
-//            //Criando um novo id para a adicionar na entidade
-//            let newId : Int64 = 1
-//
-//            //Adicionando id na entidade IdSubjects
-//            IdSubjects().createIdSubject(id: newId)
-//
-//            //Setando o valor do id à variavel
-//            entry.id = newId
-//        } else {
-//
-//            //Criando uma nova id com o valor do id atual do IdSubjects + 1 (incrementação)
-//            let newId = idSubject[0].id + 1;
-//
-//            print(newId)
-//
-//            //Setando o valor do id à variavel
-//            entry.id = newId
-//
-//            //Deletando o id com o valor passadp
-//            IdSubjects().deleteAllIdsSubjects()
-//
-//            idSubject = IdSubjects().getAllIdSubjects()
-//
-//            if idSubject.isEmpty {
-//                print("Deu certo");
-//            }
-//
-//            //Inserindo um novo id com o valor incrementado
-//            IdSubjects().createIdSubject(id: newId)
-//
-//            idSubject = IdSubjects().getAllIdSubjects()
-//
-//            print(idSubject[0].id)
-//
-//
-//        }
-//
-//        //Função que atualiza a tela assim que os dados das matérias forem cadastrados
-//        entry.update = {
-//            subjects = Subjects().getAllSubjects()
-//            DispatchQueue.main.async {
-//                self.tbViewSubjects.reloadData()
-//            }
-//        }
-//
-//        //Redirecionamento sendo efetuado
-//        navigationController?.pushViewController(entry, animated: true)
-//
-//
-//    }
-//
-//
 }
 
 extension ViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(subjects[indexPath.row].idSubject)
+        
+        //Criando a variável que popula a ViewController selecionada
+        let entry = storyboard?.instantiateViewController(withIdentifier: "ClassesViewController") as! ClassesViewController
+        
+        //Populando a ViewController com base nas variáveis opcionais criadas na mesma
+        entry.nameSubject = subjects[indexPath.row].name
+        entry.idSubject = subjects[indexPath.row].idSubject
+        
+        //Enviando o usuário para a ViewController selecionada junto com as variáveis setadas
+        navigationController?.pushViewController(entry, animated: true)
+        
+        //Tirando o status de selecionado da linha
+        tbViewSubjects.deselectRow(at: indexPath, animated: true)
     }
     
+    //Funções utilizadas para que ao deslizar a linha, seja possível efetuar algumas ações como por exemplo apagar
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
     }
-    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
             tbViewSubjects.beginUpdates()

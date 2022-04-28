@@ -23,6 +23,7 @@
 		16A0F609281742AA00DC5D03 /* ClassesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A0F608281742AA00DC5D03 /* ClassesViewController.swift */; };
 		16A0F60C28174B9900DC5D03 /* Classes+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A0F60A28174B9900DC5D03 /* Classes+CoreDataClass.swift */; };
 		16A0F60D28174B9900DC5D03 /* Classes+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A0F60B28174B9900DC5D03 /* Classes+CoreDataProperties.swift */; };
+		16A0F6112818754900DC5D03 /* ClassesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A0F6102818754900DC5D03 /* ClassesTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		16A0F608281742AA00DC5D03 /* ClassesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesViewController.swift; sourceTree = "<group>"; };
 		16A0F60A28174B9900DC5D03 /* Classes+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Classes+CoreDataClass.swift"; sourceTree = "<group>"; };
 		16A0F60B28174B9900DC5D03 /* Classes+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Classes+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		16A0F6102818754900DC5D03 /* ClassesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 				1605454F280750C500EB9ECE /* ViewController.swift */,
 				169DECC02812E227003C0593 /* SubjectTableViewCell.swift */,
 				16A0F608281742AA00DC5D03 /* ClassesViewController.swift */,
+				16A0F6102818754900DC5D03 /* ClassesTableViewCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 				169DECBD28108DDD003C0593 /* IdSubjects+CoreDataProperties.swift in Sources */,
 				169DECBB28108DDD003C0593 /* Subjects+CoreDataProperties.swift in Sources */,
 				16054550280750C500EB9ECE /* ViewController.swift in Sources */,
+				16A0F6112818754900DC5D03 /* ClassesTableViewCell.swift in Sources */,
 				169DECB22810848A003C0593 /* CadMatViewController.swift in Sources */,
 				16A0F609281742AA00DC5D03 /* ClassesViewController.swift in Sources */,
 				16054556280750C500EB9ECE /* NanoChallenge_3.xcdatamodeld in Sources */,
