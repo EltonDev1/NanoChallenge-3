@@ -39,7 +39,10 @@ class ClassesViewController: UIViewController {
     }
     
     @objc func adicionarNovaAula() {
-        print("ola")
+        //Criando uma variável que vai ter o valor da classe do storyboard de cadastro de novas aulas
+        let entry = storyboard?.instantiateViewController(withIdentifier: "RegClassesViewController") as! RegClassesViewController
+        navigationController?.pushViewController(entry, animated: true)
+        
     }
     
 }

@@ -14,7 +14,6 @@
 		16054556280750C500EB9ECE /* NanoChallenge_3.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 16054554280750C500EB9ECE /* NanoChallenge_3.xcdatamodeld */; };
 		16054558280750C800EB9ECE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16054557280750C800EB9ECE /* Assets.xcassets */; };
 		1605455B280750C800EB9ECE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16054559280750C800EB9ECE /* LaunchScreen.storyboard */; };
-		169DECB22810848A003C0593 /* CadMatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169DECB12810848A003C0593 /* CadMatViewController.swift */; };
 		169DECBA28108DDC003C0593 /* Subjects+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169DECB628108DDC003C0593 /* Subjects+CoreDataClass.swift */; };
 		169DECBB28108DDD003C0593 /* Subjects+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169DECB728108DDC003C0593 /* Subjects+CoreDataProperties.swift */; };
 		169DECBC28108DDD003C0593 /* IdSubjects+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169DECB828108DDC003C0593 /* IdSubjects+CoreDataClass.swift */; };
@@ -24,6 +23,7 @@
 		16A0F60C28174B9900DC5D03 /* Classes+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A0F60A28174B9900DC5D03 /* Classes+CoreDataClass.swift */; };
 		16A0F60D28174B9900DC5D03 /* Classes+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A0F60B28174B9900DC5D03 /* Classes+CoreDataProperties.swift */; };
 		16A0F6112818754900DC5D03 /* ClassesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A0F6102818754900DC5D03 /* ClassesTableViewCell.swift */; };
+		16A0F614281B085C00DC5D03 /* RegClassesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A0F613281B085C00DC5D03 /* RegClassesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,7 +36,6 @@
 		16054557280750C800EB9ECE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1605455A280750C800EB9ECE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1605455C280750C800EB9ECE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		169DECB12810848A003C0593 /* CadMatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadMatViewController.swift; sourceTree = "<group>"; };
 		169DECB628108DDC003C0593 /* Subjects+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Subjects+CoreDataClass.swift"; sourceTree = "<group>"; };
 		169DECB728108DDC003C0593 /* Subjects+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Subjects+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		169DECB828108DDC003C0593 /* IdSubjects+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IdSubjects+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -46,6 +45,7 @@
 		16A0F60A28174B9900DC5D03 /* Classes+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Classes+CoreDataClass.swift"; sourceTree = "<group>"; };
 		16A0F60B28174B9900DC5D03 /* Classes+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Classes+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		16A0F6102818754900DC5D03 /* ClassesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesTableViewCell.swift; sourceTree = "<group>"; };
+		16A0F613281B085C00DC5D03 /* RegClassesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegClassesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,11 +93,11 @@
 		169DECB328108498003C0593 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				169DECB12810848A003C0593 /* CadMatViewController.swift */,
 				1605454F280750C500EB9ECE /* ViewController.swift */,
 				169DECC02812E227003C0593 /* SubjectTableViewCell.swift */,
 				16A0F608281742AA00DC5D03 /* ClassesViewController.swift */,
 				16A0F6102818754900DC5D03 /* ClassesTableViewCell.swift */,
+				16A0F613281B085C00DC5D03 /* RegClassesViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -219,6 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16A0F614281B085C00DC5D03 /* RegClassesViewController.swift in Sources */,
 				16A0F60C28174B9900DC5D03 /* Classes+CoreDataClass.swift in Sources */,
 				169DECC12812E227003C0593 /* SubjectTableViewCell.swift in Sources */,
 				169DECBA28108DDC003C0593 /* Subjects+CoreDataClass.swift in Sources */,
@@ -226,7 +227,6 @@
 				169DECBB28108DDD003C0593 /* Subjects+CoreDataProperties.swift in Sources */,
 				16054550280750C500EB9ECE /* ViewController.swift in Sources */,
 				16A0F6112818754900DC5D03 /* ClassesTableViewCell.swift in Sources */,
-				169DECB22810848A003C0593 /* CadMatViewController.swift in Sources */,
 				16A0F609281742AA00DC5D03 /* ClassesViewController.swift in Sources */,
 				16054556280750C500EB9ECE /* NanoChallenge_3.xcdatamodeld in Sources */,
 				169DECBC28108DDD003C0593 /* IdSubjects+CoreDataClass.swift in Sources */,
