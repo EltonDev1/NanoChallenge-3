@@ -76,7 +76,7 @@ public class Classes: NSManagedObject {
         }
         
         //Retornando todos itens da classe
-        return listClasses
+        return listClasses.reversed()
     }
 
 }

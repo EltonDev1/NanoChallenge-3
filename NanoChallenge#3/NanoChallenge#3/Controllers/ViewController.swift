@@ -36,8 +36,10 @@ class ViewController: UIViewController {
     @objc func editCells() {
         if tbViewSubjects.isEditing {
             tbViewSubjects.setEditing(false, animated: true)
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Editar", style: .plain, target: self, action: #selector(editCells))
         } else {
             tbViewSubjects.setEditing(true, animated: true)
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Pronto", style: .plain, target: self, action: #selector(editCells))
         }
     }
 

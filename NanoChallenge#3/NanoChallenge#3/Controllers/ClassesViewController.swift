@@ -41,6 +41,15 @@ class ClassesViewController: UIViewController {
     @objc func adicionarNovaAula() {
         //Criando uma variável que vai ter o valor da classe do storyboard de cadastro de novas aulas
         let entry = storyboard?.instantiateViewController(withIdentifier: "RegClassesViewController") as! RegClassesViewController
+        
+        entry.idSubject = idSubject!
+        entry.update = {
+            classes = Classes().getAllClasses()
+            DispatchQueue.main.async {
+                self.tbViewClasses.reloadData()
+            }
+        }
+        
         navigationController?.pushViewController(entry, animated: true)
         
     }
@@ -48,6 +57,14 @@ class ClassesViewController: UIViewController {
 }
 
 extension ClassesViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let entry = storyboard?.instantiateViewController(withIdentifier: "ViewAndEditViewController") as! ViewAndEditViewController
+        entry.selectedButton = classes[indexPath.row].rateClass
+        entry.observationOfTheme = classes[indexPath.row].obsClass
+        entry.nameTheme = classes[indexPath.row].nameClass
+        navigationController?.pushViewController(entry, animated: true)
+    }
     
 }
 
@@ -73,8 +90,33 @@ extension ClassesViewController: UITableViewDataSource {
     
     //Função que seta os valores dos itens dentro da célula
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        var rate : UIColor?
+        
+        switch classes[indexPath.row].rateClass {
+            case "MB":
+                rate = UIColor.systemGreen
+            break;
+            case "B":
+                rate = UIColor(red: 190/255, green: 223/255, blue: 0, alpha: 1)
+            break;
+            case "R":
+                rate = UIColor.systemYellow
+            break;
+            case "P":
+                rate = UIColor.systemOrange
+            break;
+            case "MP":
+                rate = UIColor.systemRed
+            break;
+            default:
+                rate = UIColor.systemBlue
+            break;
+        }
+        
         let cell = tbViewClasses.dequeueReusableCell(withIdentifier: "ClassesTableViewCell", for: indexPath) as! ClassesTableViewCell
         cell.lblClasses.text = classes[indexPath.row].nameClass
+        cell.imgCircleBook.tintColor = rate
         return cell
     }
 }

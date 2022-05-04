@@ -14,6 +14,7 @@
 		16054556280750C500EB9ECE /* NanoChallenge_3.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 16054554280750C500EB9ECE /* NanoChallenge_3.xcdatamodeld */; };
 		16054558280750C800EB9ECE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16054557280750C800EB9ECE /* Assets.xcassets */; };
 		1605455B280750C800EB9ECE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16054559280750C800EB9ECE /* LaunchScreen.storyboard */; };
+		167471042822EE3A009C3FE9 /* ViewAndEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167471032822EE3A009C3FE9 /* ViewAndEditViewController.swift */; };
 		169DECBA28108DDC003C0593 /* Subjects+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169DECB628108DDC003C0593 /* Subjects+CoreDataClass.swift */; };
 		169DECBB28108DDD003C0593 /* Subjects+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169DECB728108DDC003C0593 /* Subjects+CoreDataProperties.swift */; };
 		169DECBC28108DDD003C0593 /* IdSubjects+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169DECB828108DDC003C0593 /* IdSubjects+CoreDataClass.swift */; };
@@ -36,6 +37,7 @@
 		16054557280750C800EB9ECE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1605455A280750C800EB9ECE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1605455C280750C800EB9ECE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		167471032822EE3A009C3FE9 /* ViewAndEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAndEditViewController.swift; sourceTree = "<group>"; };
 		169DECB628108DDC003C0593 /* Subjects+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Subjects+CoreDataClass.swift"; sourceTree = "<group>"; };
 		169DECB728108DDC003C0593 /* Subjects+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Subjects+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		169DECB828108DDC003C0593 /* IdSubjects+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IdSubjects+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				16A0F608281742AA00DC5D03 /* ClassesViewController.swift */,
 				16A0F6102818754900DC5D03 /* ClassesTableViewCell.swift */,
 				16A0F613281B085C00DC5D03 /* RegClassesViewController.swift */,
+				167471032822EE3A009C3FE9 /* ViewAndEditViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				169DECBD28108DDD003C0593 /* IdSubjects+CoreDataProperties.swift in Sources */,
 				169DECBB28108DDD003C0593 /* Subjects+CoreDataProperties.swift in Sources */,
 				16054550280750C500EB9ECE /* ViewController.swift in Sources */,
+				167471042822EE3A009C3FE9 /* ViewAndEditViewController.swift in Sources */,
 				16A0F6112818754900DC5D03 /* ClassesTableViewCell.swift in Sources */,
 				16A0F609281742AA00DC5D03 /* ClassesViewController.swift in Sources */,
 				16054556280750C500EB9ECE /* NanoChallenge_3.xcdatamodeld in Sources */,

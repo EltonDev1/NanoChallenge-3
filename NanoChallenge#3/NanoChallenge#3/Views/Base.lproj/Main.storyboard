@@ -66,7 +66,9 @@
                                     <constraint firstAttribute="height" constant="63" id="kgq-p2-1bL"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Relatório Matérias"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Relatório Matérias">
+                                    <color key="baseBackgroundColor" white="0.58070629835128784" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Q3-DT-U5q">
                                 <rect key="frame" x="309" y="112" width="90" height="31"/>
@@ -123,7 +125,6 @@
         <!--Temas-->
         <scene sceneID="9NY-ad-eRO">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uk0-7x-irJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="ClassesViewController" id="1Qa-ee-tdy" customClass="ClassesViewController" customModule="NanoChallenge_3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="k7o-ts-xKa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -140,21 +141,38 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Md3-hh-OZJ">
-                                                    <rect key="frame" x="35" y="11.5" width="42" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Md3-hh-OZJ">
+                                                    <rect key="frame" x="35" y="11.5" width="301.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YgR-cU-NWa">
-                                                    <rect key="frame" x="384" y="14" width="15" height="16.5"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YgR-cU-NWa">
+                                                    <rect key="frame" x="386.5" y="14" width="12.5" height="16.5"/>
                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="12.5" id="tIt-6P-mda"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="book.closed.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="cAy-VC-VtW">
+                                                    <rect key="frame" x="351.5" y="12.5" width="20" height="19"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="bEW-J2-cJY"/>
+                                                    </constraints>
                                                 </imageView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Md3-hh-OZJ" firstAttribute="centerY" secondItem="a5f-CG-lxs" secondAttribute="centerY" id="Jxk-yb-Ocn"/>
+                                                <constraint firstAttribute="trailing" secondItem="YgR-cU-NWa" secondAttribute="trailing" constant="15" id="Kwm-zL-Hd1"/>
+                                                <constraint firstItem="cAy-VC-VtW" firstAttribute="leading" secondItem="Md3-hh-OZJ" secondAttribute="trailing" constant="15" id="Urj-zC-Aqd"/>
+                                                <constraint firstItem="YgR-cU-NWa" firstAttribute="centerY" secondItem="a5f-CG-lxs" secondAttribute="centerY" id="Z7y-a6-0Fv"/>
+                                                <constraint firstItem="Md3-hh-OZJ" firstAttribute="leading" secondItem="a5f-CG-lxs" secondAttribute="leadingMargin" constant="15" id="sZ8-AB-Nyb"/>
+                                                <constraint firstItem="YgR-cU-NWa" firstAttribute="leading" secondItem="cAy-VC-VtW" secondAttribute="trailing" constant="15" id="tdm-F1-I3F"/>
+                                                <constraint firstItem="cAy-VC-VtW" firstAttribute="centerY" secondItem="a5f-CG-lxs" secondAttribute="centerY" id="uC9-DR-Mtd"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="imgCircleBook" destination="cAy-VC-VtW" id="qOI-yP-sVu"/>
                                             <outlet property="lblClasses" destination="Md3-hh-OZJ" id="4wW-6Q-G0d"/>
                                         </connections>
                                     </tableViewCell>
@@ -198,10 +216,165 @@
                         <outlet property="lblNameSubject" destination="rt1-lg-y8D" id="KNi-XJ-1NB"/>
                         <outlet property="tbViewClasses" destination="9nf-Wj-Hvs" id="0p7-oc-ERy"/>
                         <segue destination="LnQ-d7-GTP" kind="show" id="UZ5-F2-UTi"/>
+                        <segue destination="tdI-k4-sAt" kind="show" id="4ED-9M-3Wx"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uk0-7x-irJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1847.826086956522" y="138.61607142857142"/>
+        </scene>
+        <!--Visualizar/Editar-->
+        <scene sceneID="rE8-Yb-0cJ">
+            <objects>
+                <viewController storyboardIdentifier="ViewAndEditViewController" id="tdI-k4-sAt" customClass="ViewAndEditViewController" customModule="NanoChallenge_3" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3LS-Ac-dOe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Digite o tema visto hoje" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yYk-Ck-vGB">
+                                <rect key="frame" x="15" y="112" width="384" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="foc-K1-qzq">
+                                <rect key="frame" x="100" y="215" width="214" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="nBF-F2-hGl"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Muito bom">
+                                    <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="avMuitoBom:" destination="LnQ-d7-GTP" eventType="touchUpInside" id="HaD-El-L8U"/>
+                                    <action selector="avMuitoBom:" destination="tdI-k4-sAt" eventType="touchUpInside" id="tlc-h7-59T"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yPM-eS-cql">
+                                <rect key="frame" x="100" y="289" width="214" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="fOP-VY-xnR"/>
+                                </constraints>
+                                <color key="tintColor" red="0.5454219213" green="0.87562262150000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Bom">
+                                    <color key="baseBackgroundColor" red="0.74692579039999996" green="0.87562262150000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="avBom:" destination="tdI-k4-sAt" eventType="touchUpInside" id="iDa-p8-nHV"/>
+                                    <action selector="avBom:" destination="LnQ-d7-GTP" eventType="touchUpInside" id="jbp-HG-eoC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7kg-G9-n29">
+                                <rect key="frame" x="100" y="363" width="214" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Web-YR-z0X"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Razoável">
+                                    <color key="baseBackgroundColor" systemColor="systemYellowColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="avRazoavel:" destination="tdI-k4-sAt" eventType="touchUpInside" id="Pht-CJ-nZj"/>
+                                    <action selector="avRazoavel:" destination="LnQ-d7-GTP" eventType="touchUpInside" id="gwN-89-kLx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I96-yQ-utp">
+                                <rect key="frame" x="100" y="437" width="214" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="9z1-pb-sHW"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Pouco">
+                                    <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="avPouco:" destination="LnQ-d7-GTP" eventType="touchUpInside" id="ApN-v3-cS3"/>
+                                    <action selector="avPouco:" destination="tdI-k4-sAt" eventType="touchUpInside" id="i9X-vT-A7E"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Como foi seu aprendizado nesse tema?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bN1-ly-XqS">
+                                <rect key="frame" x="15" y="170" width="384" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eHb-Ns-eKt">
+                                <rect key="frame" x="100" y="511" width="214" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="JBq-LQ-mAx"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Muito pouco">
+                                    <color key="baseBackgroundColor" systemColor="systemRedColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="avMuitoPouco:" destination="tdI-k4-sAt" eventType="touchUpInside" id="Jnd-Nf-eJC"/>
+                                    <action selector="avMuitoPouco:" destination="LnQ-d7-GTP" eventType="touchUpInside" id="cYP-04-6Ab"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anotações" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Raw-wY-eqM">
+                                <rect key="frame" x="15" y="585" width="384" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AJx-Td-5o1">
+                                <rect key="frame" x="15" y="630" width="384" height="217"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="H2Z-eb-eNY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="yPM-eS-cql" firstAttribute="leading" secondItem="H2Z-eb-eNY" secondAttribute="leading" constant="100" id="4cN-p1-ZX4"/>
+                            <constraint firstItem="Raw-wY-eqM" firstAttribute="leading" secondItem="H2Z-eb-eNY" secondAttribute="leading" constant="15" id="76U-xd-GJf"/>
+                            <constraint firstItem="H2Z-eb-eNY" firstAttribute="trailing" secondItem="yPM-eS-cql" secondAttribute="trailing" constant="100" id="8Au-OI-Kap"/>
+                            <constraint firstItem="foc-K1-qzq" firstAttribute="top" secondItem="bN1-ly-XqS" secondAttribute="bottom" constant="24" id="96h-w6-y3Q"/>
+                            <constraint firstItem="7kg-G9-n29" firstAttribute="top" secondItem="yPM-eS-cql" secondAttribute="bottom" constant="24" id="B2Z-XK-HKP"/>
+                            <constraint firstItem="H2Z-eb-eNY" firstAttribute="trailing" secondItem="Raw-wY-eqM" secondAttribute="trailing" constant="15" id="B9W-iD-zgh"/>
+                            <constraint firstItem="7kg-G9-n29" firstAttribute="leading" secondItem="H2Z-eb-eNY" secondAttribute="leading" constant="100" id="Dne-nr-bNm"/>
+                            <constraint firstItem="H2Z-eb-eNY" firstAttribute="trailing" secondItem="yYk-Ck-vGB" secondAttribute="trailing" constant="15" id="KP8-9d-rBA"/>
+                            <constraint firstItem="H2Z-eb-eNY" firstAttribute="trailing" secondItem="AJx-Td-5o1" secondAttribute="trailing" constant="15" id="P1f-ee-2Pt"/>
+                            <constraint firstItem="AJx-Td-5o1" firstAttribute="top" secondItem="Raw-wY-eqM" secondAttribute="bottom" constant="24" id="QMK-O2-QJu"/>
+                            <constraint firstItem="AJx-Td-5o1" firstAttribute="leading" secondItem="H2Z-eb-eNY" secondAttribute="leading" constant="15" id="SXB-uY-BEd"/>
+                            <constraint firstItem="H2Z-eb-eNY" firstAttribute="trailing" secondItem="foc-K1-qzq" secondAttribute="trailing" constant="100" id="Toh-nr-GhJ"/>
+                            <constraint firstItem="eHb-Ns-eKt" firstAttribute="top" secondItem="I96-yQ-utp" secondAttribute="bottom" constant="24" id="Vih-BA-ygs"/>
+                            <constraint firstItem="H2Z-eb-eNY" firstAttribute="trailing" secondItem="eHb-Ns-eKt" secondAttribute="trailing" constant="100" id="Vkj-P5-fCc"/>
+                            <constraint firstItem="Raw-wY-eqM" firstAttribute="top" secondItem="eHb-Ns-eKt" secondAttribute="bottom" constant="24" id="XTs-45-oOI"/>
+                            <constraint firstItem="bN1-ly-XqS" firstAttribute="leading" secondItem="H2Z-eb-eNY" secondAttribute="leading" constant="15" id="bhL-mL-nkX"/>
+                            <constraint firstItem="bN1-ly-XqS" firstAttribute="top" secondItem="yYk-Ck-vGB" secondAttribute="bottom" constant="24" id="ejY-vv-Jqg"/>
+                            <constraint firstItem="I96-yQ-utp" firstAttribute="leading" secondItem="H2Z-eb-eNY" secondAttribute="leading" constant="100" id="f7a-1u-CMq"/>
+                            <constraint firstItem="eHb-Ns-eKt" firstAttribute="leading" secondItem="H2Z-eb-eNY" secondAttribute="leading" constant="100" id="fyq-IN-Ooq"/>
+                            <constraint firstItem="H2Z-eb-eNY" firstAttribute="trailing" secondItem="I96-yQ-utp" secondAttribute="trailing" constant="100" id="i79-yQ-1eu"/>
+                            <constraint firstItem="yYk-Ck-vGB" firstAttribute="top" secondItem="H2Z-eb-eNY" secondAttribute="top" constant="24" id="jEN-iB-pgk"/>
+                            <constraint firstItem="I96-yQ-utp" firstAttribute="top" secondItem="7kg-G9-n29" secondAttribute="bottom" constant="24" id="jul-xg-cBM"/>
+                            <constraint firstItem="AJx-Td-5o1" firstAttribute="top" secondItem="Raw-wY-eqM" secondAttribute="bottom" constant="24" id="k9P-S5-vS4"/>
+                            <constraint firstItem="H2Z-eb-eNY" firstAttribute="trailing" secondItem="bN1-ly-XqS" secondAttribute="trailing" constant="15" id="lqT-Ns-Mxo"/>
+                            <constraint firstItem="yYk-Ck-vGB" firstAttribute="leading" secondItem="H2Z-eb-eNY" secondAttribute="leading" constant="15" id="pIA-LZ-bWv"/>
+                            <constraint firstItem="foc-K1-qzq" firstAttribute="leading" secondItem="H2Z-eb-eNY" secondAttribute="leading" constant="100" id="qvi-dc-zS3"/>
+                            <constraint firstItem="yPM-eS-cql" firstAttribute="top" secondItem="foc-K1-qzq" secondAttribute="bottom" constant="24" id="sLj-Tf-kdw"/>
+                            <constraint firstItem="H2Z-eb-eNY" firstAttribute="bottom" secondItem="AJx-Td-5o1" secondAttribute="bottom" constant="15" id="tkk-cz-ANX"/>
+                            <constraint firstItem="H2Z-eb-eNY" firstAttribute="trailing" secondItem="7kg-G9-n29" secondAttribute="trailing" constant="100" id="znz-An-Gfk"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Visualizar/Editar" id="l4B-nr-FZ2"/>
+                    <connections>
+                        <outlet property="btnBom" destination="yPM-eS-cql" id="2ZP-bg-U8q"/>
+                        <outlet property="btnMuitoBom" destination="foc-K1-qzq" id="Xdw-bL-Lui"/>
+                        <outlet property="btnMuitoPouco" destination="eHb-Ns-eKt" id="bTI-bm-vJF"/>
+                        <outlet property="btnPouco" destination="I96-yQ-utp" id="lJQ-qL-yE3"/>
+                        <outlet property="btnRazoavel" destination="7kg-G9-n29" id="QO4-yj-mEy"/>
+                        <outlet property="txtNameTheme" destination="yYk-Ck-vGB" id="4l5-WK-4a2"/>
+                        <outlet property="txtObservation" destination="AJx-Td-5o1" id="Hhj-ni-7jS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dI5-Ti-z7g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1848" y="822"/>
         </scene>
         <!--Avaliação-->
         <scene sceneID="4SI-d2-NSG">
@@ -217,15 +390,26 @@
                                     <constraint firstAttribute="height" constant="50" id="HVS-rM-QbA"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Muito bom">
+                                    <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="avMuitoBom:" destination="LnQ-d7-GTP" eventType="touchUpInside" id="W3N-Xy-wqD"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VxG-CO-Ghk">
                                 <rect key="frame" x="100" y="289" width="214" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ANd-Q5-Upf"/>
                                 </constraints>
+                                <color key="tintColor" red="0.54542192128760947" green="0.87562262151659154" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Bom">
+                                    <color key="baseBackgroundColor" red="0.746925790369667" green="0.87562262151659154" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="avBom:" destination="LnQ-d7-GTP" eventType="touchUpInside" id="kx7-5M-rDI"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ye-1R-GSU">
                                 <rect key="frame" x="100" y="363" width="214" height="50"/>
@@ -233,7 +417,12 @@
                                     <constraint firstAttribute="height" constant="50" id="heA-H8-h9t"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Razoável">
+                                    <color key="baseBackgroundColor" systemColor="systemYellowColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="avRazoavel:" destination="LnQ-d7-GTP" eventType="touchUpInside" id="gva-2t-LTL"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SMl-92-ffM">
                                 <rect key="frame" x="100" y="437" width="214" height="50"/>
@@ -241,7 +430,12 @@
                                     <constraint firstAttribute="height" constant="50" id="bPt-ie-Utp"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Pouco">
+                                    <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="avPouco:" destination="LnQ-d7-GTP" eventType="touchUpInside" id="X2B-gf-auE"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Digite o tema visto hoje" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="chP-TV-dfG">
                                 <rect key="frame" x="15" y="112" width="384" height="34"/>
@@ -260,7 +454,12 @@
                                     <constraint firstAttribute="height" constant="50" id="4ej-ZX-wb6"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Muito pouco">
+                                    <color key="baseBackgroundColor" systemColor="systemRedColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="avMuitoPouco:" destination="LnQ-d7-GTP" eventType="touchUpInside" id="17l-Ko-zCM"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anotações" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzR-HF-TnO">
                                 <rect key="frame" x="15" y="585" width="384" height="21"/>
@@ -314,6 +513,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="NavBarItems" destination="fLY-iQ-fLN" id="hPN-g1-9U9"/>
+                        <outlet property="btnBom" destination="VxG-CO-Ghk" id="GMd-FP-lFY"/>
+                        <outlet property="btnMuitoBom" destination="DBE-SB-pNh" id="cAT-L4-lBn"/>
+                        <outlet property="btnMuitoPouco" destination="FIK-Zd-7XC" id="JcJ-qz-Z8k"/>
+                        <outlet property="btnPouco" destination="SMl-92-ffM" id="kQ9-zM-zaa"/>
+                        <outlet property="btnRazoavel" destination="3Ye-1R-GSU" id="CyH-T4-Jgc"/>
+                        <outlet property="txtNameTheme" destination="chP-TV-dfG" id="P67-sz-s45"/>
                         <outlet property="txtViewAnotacoes" destination="EGF-KG-Cmj" id="m21-k5-Dga"/>
                     </connections>
                 </viewController>
@@ -341,6 +546,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="book.closed.circle.fill" catalog="system" width="128" height="121"/>
         <image name="chevron.forward" catalog="system" width="96" height="128"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
         <systemColor name="labelColor">
@@ -351,6 +557,18 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
