@@ -131,7 +131,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="9nf-Wj-Hvs">
-                                <rect key="frame" x="0.0" y="173" width="414" height="578"/>
+                                <rect key="frame" x="0.0" y="173" width="414" height="689"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ClassesTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ClassesTableViewCell" id="XbX-uc-YeF" customClass="ClassesTableViewCell" customModule="NanoChallenge_3" customModuleProvider="target">
@@ -184,15 +184,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Cc-qu-2DX">
-                                <rect key="frame" x="105" y="775" width="204" height="63"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="63" id="QKO-Sl-kcQ"/>
-                                    <constraint firstAttribute="width" constant="204" id="l0m-xD-cWJ"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Relatório Temas"/>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gPg-La-aaK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -201,11 +192,8 @@
                             <constraint firstItem="9nf-Wj-Hvs" firstAttribute="trailing" secondItem="gPg-La-aaK" secondAttribute="trailing" id="Bva-Rz-nWB"/>
                             <constraint firstItem="gPg-La-aaK" firstAttribute="trailing" secondItem="rt1-lg-y8D" secondAttribute="trailing" constant="20" id="Chq-La-SBN"/>
                             <constraint firstItem="rt1-lg-y8D" firstAttribute="leading" secondItem="gPg-La-aaK" secondAttribute="leading" constant="20" id="FMt-m1-r6c"/>
-                            <constraint firstItem="4Cc-qu-2DX" firstAttribute="leading" secondItem="gPg-La-aaK" secondAttribute="leading" constant="105" id="HRF-Ue-9E9"/>
-                            <constraint firstItem="gPg-La-aaK" firstAttribute="bottom" secondItem="4Cc-qu-2DX" secondAttribute="bottom" constant="24" id="JfJ-jD-eo9"/>
-                            <constraint firstItem="gPg-La-aaK" firstAttribute="trailing" secondItem="4Cc-qu-2DX" secondAttribute="trailing" constant="105" id="Us8-p6-Xep"/>
+                            <constraint firstItem="gPg-La-aaK" firstAttribute="bottom" secondItem="9nf-Wj-Hvs" secondAttribute="bottom" id="UUo-1w-S5r"/>
                             <constraint firstItem="9nf-Wj-Hvs" firstAttribute="leading" secondItem="gPg-La-aaK" secondAttribute="leading" id="h1V-ih-lG8"/>
-                            <constraint firstItem="4Cc-qu-2DX" firstAttribute="top" secondItem="9nf-Wj-Hvs" secondAttribute="bottom" constant="24" id="r4B-GR-6BW"/>
                             <constraint firstItem="9nf-Wj-Hvs" firstAttribute="top" secondItem="rt1-lg-y8D" secondAttribute="bottom" constant="24" id="usC-WU-z9g"/>
                         </constraints>
                     </view>
@@ -223,7 +211,7 @@
             </objects>
             <point key="canvasLocation" x="1847.826086956522" y="138.61607142857142"/>
         </scene>
-        <!--Visualizar/Editar-->
+        <!--Tema selecionado-->
         <scene sceneID="rE8-Yb-0cJ">
             <objects>
                 <viewController storyboardIdentifier="ViewAndEditViewController" id="tdI-k4-sAt" customClass="ViewAndEditViewController" customModule="NanoChallenge_3" customModuleProvider="target" sceneMemberID="viewController">
@@ -361,7 +349,7 @@
                             <constraint firstItem="H2Z-eb-eNY" firstAttribute="trailing" secondItem="7kg-G9-n29" secondAttribute="trailing" constant="100" id="znz-An-Gfk"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Visualizar/Editar" id="l4B-nr-FZ2"/>
+                    <navigationItem key="navigationItem" title="Tema selecionado" id="l4B-nr-FZ2"/>
                     <connections>
                         <outlet property="btnBom" destination="yPM-eS-cql" id="2ZP-bg-U8q"/>
                         <outlet property="btnMuitoBom" destination="foc-K1-qzq" id="Xdw-bL-Lui"/>
@@ -376,7 +364,7 @@
             </objects>
             <point key="canvasLocation" x="1848" y="822"/>
         </scene>
-        <!--Avaliação-->
+        <!--Novo tema-->
         <scene sceneID="4SI-d2-NSG">
             <objects>
                 <viewController storyboardIdentifier="RegClassesViewController" id="LnQ-d7-GTP" customClass="RegClassesViewController" customModule="NanoChallenge_3" customModuleProvider="target" sceneMemberID="viewController">
@@ -402,7 +390,6 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ANd-Q5-Upf"/>
                                 </constraints>
-                                <color key="tintColor" red="0.54542192128760947" green="0.87562262151659154" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Bom">
                                     <color key="baseBackgroundColor" red="0.746925790369667" green="0.87562262151659154" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -508,7 +495,7 @@
                             <constraint firstItem="EGF-KG-Cmj" firstAttribute="leading" secondItem="u8E-ju-Y8h" secondAttribute="leading" constant="15" id="uIZ-ih-hJZ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Avaliação" id="fLY-iQ-fLN">
+                    <navigationItem key="navigationItem" title="Novo tema" id="fLY-iQ-fLN">
                         <barButtonItem key="backBarButtonItem" title="Voltar" id="8NC-8O-IkV"/>
                     </navigationItem>
                     <connections>

@@ -27,147 +27,65 @@ class RegClassesViewController: UIViewController {
     //Criando varíavel que vai guardar o nome do botao que for apertado
     var selectedButton : String = ""
     
-    @IBAction func avMuitoBom(_ sender: Any) {
-        if btnMuitoBom.layer.borderWidth == 0 {
-            btnMuitoBom.layer.borderWidth = 1
-            btnMuitoBom.layer.borderColor = UIColor.white.cgColor
-            btnMuitoBom.layer.opacity = 1
-            btnMuitoBom.layer.cornerRadius = 5
+    //Criando função que ira fazer a logica de cliques nos botões
+    
+    func btnClicked(btnPrincipal: UIButton, btn1: UIButton, btn2: UIButton, btn3: UIButton, btn4: UIButton, slctBtn: String) {
+        if btnPrincipal.layer.borderWidth == 0 {
+            btnPrincipal.layer.borderWidth = 1
+            btnPrincipal.layer.borderColor = UIColor.white.cgColor
+            btnPrincipal.layer.opacity = 1
+            btnPrincipal.layer.cornerRadius = 5
             
             //Setando o nome para a variável de cadastro
-            selectedButton = "MB"
+            selectedButton = slctBtn
             
             //Retirando a borda de cada botão caso tenha
-            btnBom.layer.borderWidth = 0
-            btnRazoavel.layer.borderWidth = 0
-            btnPouco.layer.borderWidth = 0
-            btnMuitoPouco.layer.borderWidth = 0
+            btn1.layer.borderWidth = 0
+            btn2.layer.borderWidth = 0
+            btn3.layer.borderWidth = 0
+            btn4.layer.borderWidth = 0
             
             //Deixando os outros botões com opacidade padrão novamente
-            btnBom.layer.opacity = 0.3
-            btnRazoavel.layer.opacity = 0.3
-            btnPouco.layer.opacity = 0.3
-            btnMuitoPouco.layer.opacity = 0.3
+            btn1.layer.opacity = 0.3
+            btn2.layer.opacity = 0.3
+            btn3.layer.opacity = 0.3
+            btn4.layer.opacity = 0.3
         } else {
-            btnMuitoBom.layer.opacity = 0.3
-            btnMuitoBom.layer.borderWidth = 0
+            btnPrincipal.layer.opacity = 0.3
+            btnPrincipal.layer.borderWidth = 0
             selectedButton = ""
+            
+            btnPrincipal.layer.opacity = 1
+            btn1.layer.opacity = 1
+            btn2.layer.opacity = 1
+            btn3.layer.opacity = 1
+            btn4.layer.opacity = 1
         }
+    }
+    
+    @IBAction func avMuitoBom(_ sender: Any) {
+        self.btnClicked(btnPrincipal: btnMuitoBom, btn1: btnBom, btn2: btnRazoavel, btn3: btnPouco, btn4: btnMuitoPouco, slctBtn: "A")
         
     }
     
     @IBAction func avBom(_ sender: Any) {
-        if btnBom.layer.borderWidth == 0 {
-            btnBom.layer.borderWidth = 1
-            btnBom.layer.borderColor = UIColor.white.cgColor
-            btnBom.layer.opacity = 1
-            btnBom.layer.cornerRadius = 5
-            
-            //Setando o nome para a variável de cadastro
-            selectedButton = "B"
-            
-            //Retirando a borda de cada botão caso tenha
-            btnMuitoBom.layer.borderWidth = 0
-            btnRazoavel.layer.borderWidth = 0
-            btnPouco.layer.borderWidth = 0
-            btnMuitoPouco.layer.borderWidth = 0
-            
-            //Deixando os outros botões com opacidade padrão novamente
-            btnMuitoBom.layer.opacity = 0.3
-            btnRazoavel.layer.opacity = 0.3
-            btnPouco.layer.opacity = 0.3
-            btnMuitoPouco.layer.opacity = 0.3
-        } else {
-            btnBom.layer.borderWidth = 0
-            btnBom.layer.opacity = 0.3
-            selectedButton = ""
-        }
+        
+        self.btnClicked(btnPrincipal: btnBom, btn1: btnMuitoBom, btn2: btnRazoavel, btn3: btnPouco, btn4: btnMuitoPouco, slctBtn: "B")
     }
     
     @IBAction func avRazoavel(_ sender: Any) {
         
-        if btnRazoavel.layer.borderWidth == 0 {
-            btnRazoavel.layer.borderWidth = 1
-            btnRazoavel.layer.borderColor = UIColor.white.cgColor
-            btnRazoavel.layer.opacity = 1
-            btnRazoavel.layer.cornerRadius = 5
-            
-            //Setando o nome para a variável de cadastro
-            selectedButton = "R"
-            
-            //Retirando a borda de cada botão caso tenha
-            btnMuitoBom.layer.borderWidth = 0
-            btnBom.layer.borderWidth = 0
-            btnPouco.layer.borderWidth = 0
-            btnMuitoPouco.layer.borderWidth = 0
-            
-            //Deixando os outros botões com opacidade padrão novamente
-            btnMuitoBom.layer.opacity = 0.3
-            btnBom.layer.opacity = 0.3
-            btnPouco.layer.opacity = 0.3
-            btnMuitoPouco.layer.opacity = 0.3
-        } else {
-            btnRazoavel.layer.borderWidth = 0
-            btnRazoavel.layer.opacity = 0.3
-            selectedButton = ""
-        }
+        self.btnClicked(btnPrincipal: btnRazoavel, btn1: btnMuitoBom, btn2: btnBom, btn3: btnPouco, btn4: btnMuitoPouco, slctBtn: "C")
     }
     
     
     @IBAction func avPouco(_ sender: Any) {
-        if btnPouco.layer.borderWidth == 0 {
-            btnPouco.layer.borderWidth = 1
-            btnPouco.layer.borderColor = UIColor.white.cgColor
-            btnPouco.layer.opacity = 1
-            btnPouco.layer.cornerRadius = 5
-            
-            //Setando o nome para a variável de cadastro
-            selectedButton = "P"
-            
-            //Retirando a borda de cada botão caso tenha
-            btnMuitoBom.layer.borderWidth = 0
-            btnBom.layer.borderWidth = 0
-            btnRazoavel.layer.borderWidth = 0
-            btnMuitoPouco.layer.borderWidth = 0
-            
-            //Deixando os outros botões com opacidade padrão novamente
-            btnMuitoBom.layer.opacity = 0.3
-            btnBom.layer.opacity = 0.3
-            btnRazoavel.layer.opacity = 0.3
-            btnMuitoPouco.layer.opacity = 0.3
-        } else {
-            btnPouco.layer.borderWidth = 0
-            btnPouco.layer.opacity = 0.3
-            selectedButton = ""
-        }
+        self.btnClicked(btnPrincipal: btnPouco, btn1: btnMuitoBom, btn2: btnBom, btn3: btnRazoavel, btn4: btnMuitoPouco, slctBtn: "D")
     }
     
     
     @IBAction func avMuitoPouco(_ sender: Any) {
-        if btnMuitoPouco.layer.borderWidth == 0 {
-            btnMuitoPouco.layer.borderWidth = 1
-            btnMuitoPouco.layer.borderColor = UIColor.white.cgColor
-            btnMuitoPouco.layer.opacity = 1
-            btnMuitoPouco.layer.cornerRadius = 5
-            
-            selectedButton = "MP"
-            
-            //Retirando a borda de cada botão caso tenha
-            btnMuitoBom.layer.borderWidth = 0
-            btnBom.layer.borderWidth = 0
-            btnRazoavel.layer.borderWidth = 0
-            btnPouco.layer.borderWidth = 0
-            
-            //Deixando os outros botões com opacidade padrão novamente
-            btnMuitoBom.layer.opacity = 0.3
-            btnBom.layer.opacity = 0.3
-            btnRazoavel.layer.opacity = 0.3
-            btnPouco.layer.opacity = 0.3
-        } else {
-            btnMuitoPouco.layer.borderWidth = 0
-            btnMuitoPouco.layer.opacity = 0.3
-            selectedButton = ""
-        }
+        self.btnClicked(btnPrincipal: btnMuitoPouco, btn1: btnMuitoBom, btn2: btnBom, btn3: btnRazoavel, btn4: btnPouco, slctBtn: "E")
     }
     
     override func viewDidLoad() {
@@ -215,13 +133,6 @@ class RegClassesViewController: UIViewController {
         }
         
     }
-    
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-
-    }
-    
 
 }
 //////////Codigo com funções para utilizar constraints programaticamente

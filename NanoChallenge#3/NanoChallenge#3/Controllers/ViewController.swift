@@ -110,7 +110,6 @@ extension ViewController: UITableViewDelegate {
         //Populando a ViewController com base nas variáveis opcionais criadas na mesma
         entry.nameSubject = subjects[indexPath.row].name
         entry.idSubject = subjects[indexPath.row].idSubject
-        
         //Enviando o usuário para a ViewController selecionada junto com as variáveis setadas
         navigationController?.pushViewController(entry, animated: true)
         
@@ -147,7 +146,6 @@ extension ViewController: UITableViewDataSource {
             default:
                 return ""
         }
-            
         
         
     }

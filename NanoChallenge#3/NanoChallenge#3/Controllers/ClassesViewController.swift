@@ -25,6 +25,9 @@ class ClassesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Alterando a array classes com aulas que pertencem somente essa materia
+        classes = Classes().getClassesById(id: self.idSubject!)
+        
         //Criando um variavel para receber o nameSubject opcional e implementar no titulo
         let nameSub : String = nameSubject!
 
@@ -42,9 +45,9 @@ class ClassesViewController: UIViewController {
         //Criando uma variável que vai ter o valor da classe do storyboard de cadastro de novas aulas
         let entry = storyboard?.instantiateViewController(withIdentifier: "RegClassesViewController") as! RegClassesViewController
         
-        entry.idSubject = idSubject!
+        entry.idSubject = self.idSubject!
         entry.update = {
-            classes = Classes().getAllClasses()
+            classes = Classes().getClassesById(id: self.idSubject!)
             DispatchQueue.main.async {
                 self.tbViewClasses.reloadData()
             }
@@ -60,10 +63,37 @@ extension ClassesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let entry = storyboard?.instantiateViewController(withIdentifier: "ViewAndEditViewController") as! ViewAndEditViewController
+        
         entry.selectedButton = classes[indexPath.row].rateClass
         entry.observationOfTheme = classes[indexPath.row].obsClass
         entry.nameTheme = classes[indexPath.row].nameClass
+        entry.classSelected = classes[indexPath.row]
+        entry.update = {
+            classes = Classes().getClassesById(id: self.idSubject!)
+            DispatchQueue.main.async {
+                self.tbViewClasses.reloadData()
+            }
+        }
         navigationController?.pushViewController(entry, animated: true)
+        
+        tbViewClasses.deselectRow(at: indexPath, animated: true)
+    }
+    
+    //Funções utilizadas para que ao deslizar a linha, seja possível efetuar algumas ações como por exemplo apagar
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+          
+            Classes().deleteClass(item: classes[indexPath.row])
+            classes = Classes().getClassesById(id: self.idSubject!)
+            DispatchQueue.main.async {
+                self.tbViewClasses.reloadData()
+            }
+            
+            
+        }
     }
     
 }
@@ -94,19 +124,19 @@ extension ClassesViewController: UITableViewDataSource {
         var rate : UIColor?
         
         switch classes[indexPath.row].rateClass {
-            case "MB":
+            case "A":
                 rate = UIColor.systemGreen
             break;
             case "B":
                 rate = UIColor(red: 190/255, green: 223/255, blue: 0, alpha: 1)
             break;
-            case "R":
+            case "C":
                 rate = UIColor.systemYellow
             break;
-            case "P":
+            case "D":
                 rate = UIColor.systemOrange
             break;
-            case "MP":
+            case "E":
                 rate = UIColor.systemRed
             break;
             default:

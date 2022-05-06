@@ -41,6 +41,16 @@ public class Classes: NSManagedObject {
         save()
     }
     
+    func updateClass(name: String, rate: String, obs: String?, item: Classes) {
+        //Utiliza a variável de objeto no parâmetro para modificar o mesmo, utilizando as outras variáveis como valor
+        item.nameClass = name
+        item.rateClass = rate
+        item.obsClass = obs
+        
+        //Atualiza os dados
+        save()
+    }
+    
     //Função para deletar uma aula em específico
     func deleteClass(item: Classes) {
         //É utilizado a função pronta delete, que pega um item em específico do context que trouxe todos dados da entidade e deleta
@@ -50,9 +60,21 @@ public class Classes: NSManagedObject {
         save()
     }
     
+    //Função criada para o processo de desenvolvimento, ajudando na rapidez da exclusao de todos dados
+    func deleteAll() {
+        let items : [Classes] = fetchAll()
+        
+        for item in items {
+            context.delete(item)
+            save()
+        }
+    }
+    
     func fetchAll()->[Classes] {
         //Criando uma array do tipo Classes para armazenar todos itens armazenados na entidade
         var items : [Classes] = []
+        
+//        Classes.fetchRequest().sortDescriptors = [NSSortDescriptor(key: "rateClass", ascending: true), NSSortDescriptor(key: "nameClass", ascending: true)]
         
         do {
             //buscando todos itens da entidade e alocando na variável item
@@ -60,7 +82,7 @@ public class Classes: NSManagedObject {
         } catch{}
         
         //Retornando a array com todos itens
-        return items
+        return items.sorted { (initial, next) -> Bool in return initial.nameClass!.compare(next.nameClass!) == .orderedAscending}
     }
     
     func getAllClasses()->[Classes] {
@@ -76,7 +98,24 @@ public class Classes: NSManagedObject {
         }
         
         //Retornando todos itens da classe
-        return listClasses.reversed()
+        return listClasses.sorted { (initial, next) -> Bool in return initial.rateClass!.compare(next.rateClass!) == .orderedDescending}
+    }
+    
+    func getClassesById(id: Int64)->[Classes] {
+        //Chamando a função que retorna os itens da entidade e alocando em uma variável auxiliar
+        let aux : [Classes] = fetchAll()
+        
+        //Criando a lista que vai alocar cada item da variável auxiliar
+        var listClasses : [Classes] = []
+        
+        //Fazendo o forEach para cada item da variável auxiliar que corresponde com a id ser alocada dentro da listClasses
+        for item in aux {
+            if(item.idClass == id) {
+                listClasses.append(item)
+            }
+        }
+        //Retornando todos itens da classe
+        return listClasses.sorted { (initial, next) -> Bool in return initial.rateClass!.compare(next.rateClass!) == .orderedDescending}
     }
 
 }
