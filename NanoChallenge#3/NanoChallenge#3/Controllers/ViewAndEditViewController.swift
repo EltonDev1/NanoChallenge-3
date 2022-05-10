@@ -45,12 +45,6 @@ class ViewAndEditViewController: UIViewController {
             btnPrincipal.layer.opacity = 0.3
             btnPrincipal.layer.borderWidth = 0
             selectedButton = ""
-            
-            btnPrincipal.layer.opacity = 1
-            btn1.layer.opacity = 1
-            btn2.layer.opacity = 1
-            btn3.layer.opacity = 1
-            btn4.layer.opacity = 1
         }
     }
     

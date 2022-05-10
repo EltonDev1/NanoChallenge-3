@@ -2,7 +2,7 @@
 //  Pessoa+CoreDataProperties.swift
 //  NanoChallenge#3
 //
-//  Created by Pedro Henrique Dias Hemmel de Oliveira Souza on 28/04/22.
+//  Created by Pedro Henrique Dias Hemmel de Oliveira Souza on 09/05/22.
 //
 //
 
