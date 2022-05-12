@@ -73,7 +73,7 @@ public class Subjects: NSManagedObject {
         }
         
         //Retorna a lista para a variável que chamou a função
-        return lista
+        return lista.sorted { (initial, next) -> Bool in return initial.name!.compare(next.name!) == .orderedAscending}
     }
     
     
