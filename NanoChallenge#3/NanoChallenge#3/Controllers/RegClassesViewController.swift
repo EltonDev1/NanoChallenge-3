@@ -31,7 +31,7 @@ class RegClassesViewController: UIViewController {
     
     func btnClicked(btnPrincipal: UIButton, btn1: UIButton, btn2: UIButton, btn3: UIButton, btn4: UIButton, slctBtn: String) {
         if btnPrincipal.layer.borderWidth == 0 {
-            btnPrincipal.layer.borderWidth = 1
+            btnPrincipal.layer.borderWidth = 0.01
             btnPrincipal.layer.borderColor = UIColor.white.cgColor
             btnPrincipal.layer.opacity = 1
             btnPrincipal.layer.cornerRadius = 5
@@ -51,7 +51,6 @@ class RegClassesViewController: UIViewController {
             btn3.layer.opacity = 0.3
             btn4.layer.opacity = 0.3
         } else {
-            btnPrincipal.layer.opacity = 0.3
             btnPrincipal.layer.borderWidth = 0
             selectedButton = ""
         }

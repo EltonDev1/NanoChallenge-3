@@ -16,8 +16,14 @@ class ViewController: UIViewController {
 
     //IBOutlets
     @IBOutlet weak var iptNewSubject: UITextField!
+    @IBOutlet weak var vwButton: UIView!
     
+    @IBOutlet weak var vwIptBtn: UIView!
     @IBOutlet weak var tbViewSubjects: UITableView!
+    
+    @IBOutlet weak var background: UIImageView!
+    
+    @IBOutlet weak var tituloLg: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,21 +34,28 @@ class ViewController: UIViewController {
         //Nesse caso seram criadas extensões da própria classe com as UIViews necessárias
         tbViewSubjects.delegate = self
         tbViewSubjects.dataSource = self
+
+        //Setando borda para o input juntamente com o botao de adicionar
+        vwIptBtn.clipsToBounds = true
+        vwIptBtn.layer.cornerRadius = 10
         
-        //Adicionando um botão de edição na navigationItem no canto direito
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Editar", style: .plain, target: self, action: #selector(editCells))
+        vwButton.clipsToBounds = true
+        vwButton.layer.cornerRadius = 10
+        vwButton.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner]
+        
+        //Adicionando imagem de background para a view principal
+        background.translatesAutoresizingMaskIntoConstraints = false
+        background.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        background.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        background.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        background.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        
+        //Deixando a font do titulo com estilo bold
+        tituloLg.font = UIFont.boldSystemFont(ofSize: 34)
     }
     
-    @objc func editCells() {
-        if tbViewSubjects.isEditing {
-            tbViewSubjects.setEditing(false, animated: true)
-            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Editar", style: .plain, target: self, action: #selector(editCells))
-        } else {
-            tbViewSubjects.setEditing(true, animated: true)
-            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Pronto", style: .plain, target: self, action: #selector(editCells))
-        }
-    }
 
+    
     @IBAction func adicionarMatéria(_ sender: Any) {
     
         guard let txt = iptNewSubject.text else { return }
@@ -110,6 +123,7 @@ extension ViewController: UITableViewDelegate {
         //Populando a ViewController com base nas variáveis opcionais criadas na mesma
         entry.nameSubject = subjects[indexPath.row].name
         entry.idSubject = subjects[indexPath.row].idSubject
+        
         //Enviando o usuário para a ViewController selecionada junto com as variáveis setadas
         navigationController?.pushViewController(entry, animated: true)
         
@@ -117,18 +131,46 @@ extension ViewController: UITableViewDelegate {
         tbViewSubjects.deselectRow(at: indexPath, animated: true)
     }
     
-    //Funções utilizadas para que ao deslizar a linha, seja possível efetuar algumas ações como por exemplo apagar
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        return .delete
-    }
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete{
-            tbViewSubjects.beginUpdates()
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .destructive, title: "Deletar") { action, indexPath in
+            //Começando as alterações dentro da tabela
+            self.tbViewSubjects.beginUpdates()
+            
+            //Deletando item do core data
             Subjects().deleteSubject(item: subjects[indexPath.row])
-            tbViewSubjects.deleteRows(at: [indexPath], with: .fade)
+            
+            //Deletando item da tabela
+            self.tbViewSubjects.deleteRows(at: [indexPath], with: .fade)
+            
+            //Buscando os itens novamente no core data
             subjects = Subjects().getAllSubjects()
-            tbViewSubjects.endUpdates()
+            
+            self.tbViewSubjects.endUpdates()
         }
+        
+        let edit = UITableViewRowAction(style: .normal, title: "Editar") { action, indexPath in
+            //Criando a variável que popula a ViewController selecionada
+            let entry = self.storyboard?.instantiateViewController(withIdentifier: "EditSubjectViewController") as! EditSubjectViewController
+            
+            //Populando as variáveis da nova viewController
+            entry.disciplina = subjects[indexPath.row]
+            
+            //Criando função que atualiza os dados quando volta para a viewController principal
+            entry.update = {
+                subjects = Subjects().getAllSubjects()
+                DispatchQueue.main.async {
+                    self.tbViewSubjects.reloadData()
+                }
+            }
+            
+            //Determinando o tamanho que a tela vai aparecer para o usuário
+            entry.sheetPresentationController?.detents = [.medium()]
+            
+            //Apresentando a nova viewController na viewController principal
+            self.present(entry, animated: true, completion: nil)
+        }
+        edit.backgroundColor = .link
+        return [delete, edit]
     }
     
 }
@@ -138,16 +180,8 @@ extension ViewController: UITableViewDelegate {
 //Na extensão UITableViewDataSource é obrigatório duas funções: a função que contem cellForRowAt e numbersOfRowsInSection
 extension ViewController: UITableViewDataSource {
     
-    //Função que cria um titulo para uma seção específica de células
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch section {
-            case 0:
-                return "Matérias atuais"
-            default:
-                return ""
-        }
-        
-        
+        return "Disciplinas adicionadas"
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

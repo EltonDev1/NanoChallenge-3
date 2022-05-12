@@ -14,16 +14,21 @@ class ClassesViewController: UIViewController {
     //IBOutlets
     @IBOutlet weak var tbViewClasses: UITableView!
     @IBOutlet weak var lblNameSubject: UILabel!
+    @IBOutlet weak var background: UIImageView!
+    @IBOutlet weak var tituloGrande: UILabel!
     
     //Variável que vai receber o id e nome da materia que for selecionado pelo usuário
     var idSubject : Int64?
     var nameSubject : String?
     
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //alterando cor dos dois titulos
+        tituloGrande.font = UIFont.boldSystemFont(ofSize: 34)
+        
+        
         
         //Alterando a array classes com aulas que pertencem somente essa materia
         classes = Classes().getClassesById(id: self.idSubject!)
@@ -38,7 +43,15 @@ class ClassesViewController: UIViewController {
         tbViewClasses.delegate = self
         tbViewClasses.dataSource = self
         
+        //Criando botão com a função de criar uma nova aula
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(adicionarNovaAula))
+        
+        //Adicionando imagem de background para a view principal
+        background.translatesAutoresizingMaskIntoConstraints = false
+        background.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        background.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        background.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        background.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
     
     @objc func adicionarNovaAula() {
@@ -46,6 +59,7 @@ class ClassesViewController: UIViewController {
         let entry = storyboard?.instantiateViewController(withIdentifier: "RegClassesViewController") as! RegClassesViewController
         
         entry.idSubject = self.idSubject!
+        //Função que atualiza os dados da tabela
         entry.update = {
             classes = Classes().getClassesById(id: self.idSubject!)
             DispatchQueue.main.async {
@@ -68,6 +82,7 @@ extension ClassesViewController: UITableViewDelegate {
         entry.observationOfTheme = classes[indexPath.row].obsClass
         entry.nameTheme = classes[indexPath.row].nameClass
         entry.classSelected = classes[indexPath.row]
+        //Função que atualiza os dados da tabela
         entry.update = {
             classes = Classes().getClassesById(id: self.idSubject!)
             DispatchQueue.main.async {
@@ -146,7 +161,7 @@ extension ClassesViewController: UITableViewDataSource {
         
         let cell = tbViewClasses.dequeueReusableCell(withIdentifier: "ClassesTableViewCell", for: indexPath) as! ClassesTableViewCell
         cell.lblClasses.text = classes[indexPath.row].nameClass
-        cell.imgCircleBook.tintColor = rate
+        cell.vwColor.backgroundColor = rate
         return cell
     }
 }

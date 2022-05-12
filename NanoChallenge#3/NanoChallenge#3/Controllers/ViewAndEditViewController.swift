@@ -13,6 +13,12 @@ class ViewAndEditViewController: UIViewController {
     @IBOutlet weak var txtNameTheme: UITextField!
     @IBOutlet weak var txtObservation: UITextView!
     
+    var nameTheme : String?
+    var selectedButton : String?
+    var observationOfTheme : String?
+    var classSelected : Classes?
+    var update : (() -> Void)?
+    
     //Conectando todos botoes para fazer modificações
     @IBOutlet weak var btnMuitoBom: UIButton!
     @IBOutlet weak var btnBom: UIButton!
@@ -22,7 +28,7 @@ class ViewAndEditViewController: UIViewController {
     
     func btnClicked(btnPrincipal: UIButton, btn1: UIButton, btn2: UIButton, btn3: UIButton, btn4: UIButton, slctBtn: String) {
         if btnPrincipal.layer.borderWidth == 0 {
-            btnPrincipal.layer.borderWidth = 1
+            btnPrincipal.layer.borderWidth = 0.01
             btnPrincipal.layer.borderColor = UIColor.white.cgColor
             btnPrincipal.layer.opacity = 1
             btnPrincipal.layer.cornerRadius = 5
@@ -42,7 +48,6 @@ class ViewAndEditViewController: UIViewController {
             btn3.layer.opacity = 0.3
             btn4.layer.opacity = 0.3
         } else {
-            btnPrincipal.layer.opacity = 0.3
             btnPrincipal.layer.borderWidth = 0
             selectedButton = ""
         }
@@ -65,11 +70,7 @@ class ViewAndEditViewController: UIViewController {
         self.btnClicked(btnPrincipal: btnMuitoPouco, btn1: btnMuitoBom, btn2: btnBom, btn3: btnRazoavel, btn4: btnPouco, slctBtn: "E")
     }
     
-    var nameTheme : String?
-    var selectedButton : String?
-    var observationOfTheme : String?
-    var classSelected : Classes?
-    var update : (() -> Void)?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

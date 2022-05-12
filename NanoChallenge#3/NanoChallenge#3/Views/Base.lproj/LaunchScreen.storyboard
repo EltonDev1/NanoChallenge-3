@@ -16,22 +16,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NanoChallenge#3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hWd-jp-Xp0">
-                                <rect key="frame" x="0.0" y="429.5" width="414" height="37"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="playstore" translatesAutoresizingMaskIntoConstraints="NO" id="vZy-c6-iJt">
+                                <rect key="frame" x="87" y="384" width="240" height="128"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="37" id="LWt-uO-tue"/>
+                                    <constraint firstAttribute="height" constant="128" id="K5I-Hz-1CX"/>
+                                    <constraint firstAttribute="width" constant="240" id="Ptm-1Z-tt5"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="hWd-jp-Xp0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="DwL-Vh-L0Q"/>
-                            <constraint firstItem="hWd-jp-Xp0" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Ibf-Ky-1RG"/>
-                            <constraint firstItem="hWd-jp-Xp0" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Jb4-H0-8r0"/>
+                            <constraint firstItem="vZy-c6-iJt" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="RYn-Fc-ooV"/>
+                            <constraint firstItem="vZy-c6-iJt" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="paI-TI-RdP"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -41,6 +38,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="playstore" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

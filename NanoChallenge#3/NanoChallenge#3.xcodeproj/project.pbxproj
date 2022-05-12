@@ -25,6 +25,7 @@
 		16A0F60D28174B9900DC5D03 /* Classes+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A0F60B28174B9900DC5D03 /* Classes+CoreDataProperties.swift */; };
 		16A0F6112818754900DC5D03 /* ClassesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A0F6102818754900DC5D03 /* ClassesTableViewCell.swift */; };
 		16A0F614281B085C00DC5D03 /* RegClassesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A0F613281B085C00DC5D03 /* RegClassesViewController.swift */; };
+		16D3B7A6282C26540009A845 /* EditSubjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D3B7A5282C26530009A845 /* EditSubjectViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		16A0F60B28174B9900DC5D03 /* Classes+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Classes+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		16A0F6102818754900DC5D03 /* ClassesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesTableViewCell.swift; sourceTree = "<group>"; };
 		16A0F613281B085C00DC5D03 /* RegClassesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegClassesViewController.swift; sourceTree = "<group>"; };
+		16D3B7A5282C26530009A845 /* EditSubjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSubjectViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				16A0F6102818754900DC5D03 /* ClassesTableViewCell.swift */,
 				16A0F613281B085C00DC5D03 /* RegClassesViewController.swift */,
 				167471032822EE3A009C3FE9 /* ViewAndEditViewController.swift */,
+				16D3B7A5282C26530009A845 /* EditSubjectViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 				1605454C280750C500EB9ECE /* AppDelegate.swift in Sources */,
 				16A0F60D28174B9900DC5D03 /* Classes+CoreDataProperties.swift in Sources */,
 				1605454E280750C500EB9ECE /* SceneDelegate.swift in Sources */,
+				16D3B7A6282C26540009A845 /* EditSubjectViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
