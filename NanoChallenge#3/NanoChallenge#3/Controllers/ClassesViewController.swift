@@ -101,11 +101,24 @@ extension ClassesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
           
+//            Classes().deleteClass(item: classes[indexPath.row])
+//            classes = Classes().getClassesById(id: self.idSubject!)
+//            DispatchQueue.main.async {
+//                self.tbViewClasses.reloadData()
+//            }
+            //Começando as alterações dentro da tabela
+            self.tbViewClasses.beginUpdates()
+            
+            //Deletando item do core data
             Classes().deleteClass(item: classes[indexPath.row])
+            
+            //Deletando item da tabela
+            self.tbViewClasses.deleteRows(at: [indexPath], with: .fade)
+            
+            //Buscando os itens novamente no core data
             classes = Classes().getClassesById(id: self.idSubject!)
-            DispatchQueue.main.async {
-                self.tbViewClasses.reloadData()
-            }
+            
+            self.tbViewClasses.endUpdates()
             
             
         }

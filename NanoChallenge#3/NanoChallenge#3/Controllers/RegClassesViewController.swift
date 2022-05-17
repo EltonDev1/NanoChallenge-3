@@ -52,7 +52,6 @@ class RegClassesViewController: UIViewController {
             btn4.layer.opacity = 0.3
         } else {
             btnPrincipal.layer.borderWidth = 0
-            selectedButton = ""
         }
     }
     
