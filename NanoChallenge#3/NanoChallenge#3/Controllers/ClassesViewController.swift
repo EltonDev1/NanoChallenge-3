@@ -44,7 +44,7 @@ class ClassesViewController: UIViewController {
         tbViewClasses.dataSource = self
         
         //Criando botão com a função de criar uma nova aula
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(adicionarNovaAula))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Novo tema", style: .plain, target: self, action: #selector(adicionarNovaAula))
         
         //Adicionando imagem de background para a view principal
         background.translatesAutoresizingMaskIntoConstraints = false
@@ -119,7 +119,7 @@ extension ClassesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
             case 0:
-                return "Aulas adicionadas"
+                return "Temas adicionados"
             default:
                 return ""
         }

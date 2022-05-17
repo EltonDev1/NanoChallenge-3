@@ -95,7 +95,7 @@ class RegClassesViewController: UIViewController {
         txtViewAnotacoes.layer.borderWidth = 0.25
         txtViewAnotacoes.layer.cornerRadius = 10
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Pronto", style: .plain, target: self, action: #selector(cadNewClass))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Salvar", style: .done, target: self, action: #selector(cadNewClass))
 
         
     }

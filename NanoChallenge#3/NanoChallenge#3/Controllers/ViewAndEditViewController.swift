@@ -128,7 +128,7 @@ class ViewAndEditViewController: UIViewController {
         txtObservation.text = txtObservatio
         
         //Criando um botao no navigationItem com a função de salvar o que foi alterado
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Pronto", style: .plain, target: self, action: #selector(alterarDadosAula))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Salvar", style: .done, target: self, action: #selector(alterarDadosAula))
 
     }
     
